@@ -33,11 +33,11 @@
     UIPrintInteractionCompletionHandler completionHandler =
     ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
         if(!completed && error){
-          
+            [self.webView stringByEvaluatingJavaScriptFromString:@"airPrintAPI.airPrintCallBack('Error');"];
         }
         else
         {
-            [self.webView stringByEvaluatingJavaScriptFromString:@"printDone();"];
+            [self.webView stringByEvaluatingJavaScriptFromString:@"airPrintAPI.airPrintCallBack('Success');"];
         }
     };
     
